@@ -30,29 +30,39 @@
 
 // EXERCISE LEVEL 3
 
-const mostSpokenLanguages = (list, n = 10) => {
-  const allLanguages = []
-  const setLanguages = new Set()
-  const countArray = []
-  list.forEach(country => {
-    country.languages.forEach(language => {
-      setLanguages.add(language)
-      allLanguages.push(language)
-    })
-  })
-  for (const l of setLanguages) {
-    const filteredlang = allLanguages.filter(lan => lan === l)
-    countArray.push({
-      [l]: filteredlang.length
-    })
-  }
-  countArray.forEach(
-    element => (element.count = parseInt(Object.values(element).toString()))
-  )
-  countArray.sort((a, b) => (a.count < b.count ? 1 : -1))
-  countArray.forEach(Element => delete Element.count)
-  const slicedCountArray = countArray.slice(0, n)
-  return slicedCountArray
-}
+// const mostSpokenLanguages = (list, n = 10) => {
+//   const allLanguages = []
+//   const countArray = []
+//   list.forEach(country => {
+//     country.languages.forEach(language => {
+//       allLanguages.push(language)
+//     })
+//   })
+//   for (const l of new Set(allLanguages)) {
+//     const filteredlang = allLanguages.filter(lan => lan === l)
+//     countArray.push({
+//       [l]: filteredlang.length
+//     })
+//   }
+//   countArray.forEach(
+//     element => (element.count = parseInt(Object.values(element).toString()))
+//   )
+//   countArray.sort((a, b) => (a.count < b.count ? 1 : -1))
+//   countArray.forEach(Element => delete Element.count)
+//   const slicedCountArray = countArray.slice(0, n)
+//   return slicedCountArray
+// }
 
-console.log(mostSpokenLanguages(countries, 20))
+// console.log(mostSpokenLanguages(countries, 20))
+
+// TEST
+
+let arr = [12, 5, 5, 6, 8, 4, 9]
+let num = ''
+num =
+  arr.length > 0 &&
+  `the numbers are: ` +
+    arr.slice(0, arr.length - 1).join(', ') +
+    ` and ${arr[arr.length - 1]}`
+
+console.log(num)
